@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartTransit BA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #fcf9f8;
+        }
+        .transit-grid-bg {
+            background-image: radial-gradient(#727783 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+        /* Ensure touch targets meet WCAG standards */
+        .touch-target {
+            min-width: 48px;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#dae5ff",
+                      "on-surface": "#1b1c1c",
+                      "outline": "#727783",
+                      "surface-container-highest": "#e5e2e1",
+                      "on-secondary-fixed": "#111d23",
+                      "on-background": "#1b1c1c",
+                      "inverse-surface": "#303030",
+                      "tertiary-fixed-dim": "#c4c7c9",
+                      "surface": "#fcf9f8",
+                      "secondary": "#546067",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#d7e4ec",
+                      "on-primary-fixed-variant": "#00468c",
+                      "on-error": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-high": "#eae7e7",
+                      "on-secondary-container": "#5a666d",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-variant": "#e5e2e1",
+                      "primary-container": "#1565c0",
+                      "tertiary": "#4b4f51",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#a9c7ff",
+                      "secondary-fixed-dim": "#bbc8d0",
+                      "tertiary-container": "#636769",
+                      "surface-container-low": "#f6f3f2",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#e3e6e8",
+                      "on-secondary-fixed-variant": "#3c494f",
+                      "surface-container": "#f0eded",
+                      "on-primary-fixed": "#001b3d",
+                      "error": "#ba1a1a",
+                      "background": "#fcf9f8",
+                      "primary-fixed": "#d6e3ff",
+                      "on-tertiary-fixed": "#181c1e",
+                      "surface-tint": "#005db7",
+                      "outline-variant": "#c2c6d4",
+                      "primary-fixed-dim": "#a9c7ff",
+                      "on-tertiary-fixed-variant": "#434749",
+                      "tertiary-fixed": "#e0e3e5",
+                      "on-surface-variant": "#424752",
+                      "surface-dim": "#dcd9d9",
+                      "primary": "#004d99",
+                      "surface-bright": "#fcf9f8",
+                      "secondary-fixed": "#d7e4ec"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "gutter": "16px",
+                      "margin-desktop": "32px",
+                      "container-max": "1280px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "body-md": ["Public Sans"],
+                      "headline-lg": ["Public Sans"],
+                      "headline-lg-mobile": ["Public Sans"],
+                      "headline-md": ["Public Sans"],
+                      "label-sm": ["Public Sans"],
+                      "label-bold": ["Public Sans"],
+                      "display-platform": ["Public Sans"],
+                      "body-lg": ["Public Sans"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "display-platform": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface">
+<header class="bg-white border-b border-outline-variant sticky top-0 z-[100]">
+<div class="max-w-container-max mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<!-- Logo Area -->
+<a href="index.html" class="flex items-center gap-3 hover:opacity-90 transition-opacity" aria-label="SmartTransit BA Inicio">
+<div aria-hidden="true" class="bg-primary p-2 rounded-lg">
+<span class="material-symbols-outlined text-white text-2xl">directions_bus</span>
+</div>
+<div>
+<span class="text-xl font-extrabold tracking-tight text-primary">SmartTransit BA</span>
+</div>
+</a>
+<!-- Desktop Navigation -->
+<nav aria-label="Navegación principal" class="hidden md:flex space-x-6 items-center h-full">
+<a aria-label="Ver líneas de colectivos" class="text-on-surface-variant hover:text-primary font-medium transition-colors h-full flex items-center px-2" href="colectivos.html">Líneas de Colectivos</a>
+<a aria-label="Ir a boletería" class="text-on-surface-variant hover:text-primary font-medium transition-colors h-full flex items-center px-2" href="boleteria.html">Boletería</a>
+<a aria-current="page" class="text-primary font-bold border-b-4 border-primary h-full flex items-center px-2" href="informacion.html">Información</a>
+<a aria-label="Ver mapa principal" class="text-on-surface-variant hover:text-primary font-medium transition-colors h-full flex items-center px-2" href="index.html">Mapa Principal</a>
+</nav>
+<!-- Mobile Menu Button -->
+<div class="md:hidden flex items-center">
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú de navegación" class="w-12 h-12 flex items-center justify-center text-on-surface focus:outline-none focus:ring-2 focus:ring-primary rounded-lg" id="menu-toggle" type="button">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Mobile Navigation Overlay -->
+<div class="hidden md:hidden bg-white border-b border-outline-variant" id="mobile-menu">
+<nav aria-label="Navegación móvil" class="flex flex-col py-2">
+<a class="flex items-center px-6 h-[56px] text-on-surface-variant hover:bg-surface-container-low" href="index.html">Mapa Principal</a>
+<a class="flex items-center px-6 h-[56px] text-on-surface-variant hover:bg-surface-container-low border-t border-outline-variant" href="colectivos.html">Líneas de Colectivos</a>
+<a class="flex items-center px-6 h-[56px] text-on-surface-variant hover:bg-surface-container-low border-t border-outline-variant" href="boleteria.html">Boletería</a>
+<a aria-current="page" class="flex items-center px-6 h-[56px] text-primary font-bold bg-surface-container-low border-t border-outline-variant" href="informacion.html">Información</a>
+</nav>
+</div>
+</header>
+<main class="relative min-h-screen" id="main-content">
+<div class="absolute inset-0 transit-grid-bg pointer-events-none"></div>
+<!-- Hero Section -->
+<section aria-labelledby="hero-heading" class="relative bg-on-background h-[260px] md:h-[300px] flex items-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-on-background via-on-background/80 to-transparent z-10"></div>
+<img alt="Vista panorámica del Centro de Trasbordo Gral. Paz y Cabildo" class="absolute inset-0 w-full h-full object-cover object-center scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgO6ZgvioftvJDpI3BjjM7F2frGDW_YsKi9hXekKNOJOoTAf3fI956slXw1OT9X8H5EwITKGWSL36oNTt3YPulvEAfma4D4BbN1lECKuIDtIQJ0iY0VIP6uKwhwwm12iaTvwKLusyTfNOYZiAqY5skoniZUYW1a1Pav3S_x7h78tTwI7we5qR2aqjOXicDPIwwp-VaEARTfihexRKaabz3cXYlIofOS06evNrMg4WWJfSSG3EvU_x9xShaMLZvUOCLb6uIPN5lkOUy"/>
+<div class="relative z-20 max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-2" id="hero-heading">Información de la Terminal</h1>
+<p class="text-primary-fixed font-body-lg text-body-md md:text-body-lg max-w-2xl">Centro de Trasbordo Gral. Paz y Cabildo (Saavedra): El nexo vital del transporte en el límite norte de la Ciudad Autónoma de Buenos Aires.</p>
+</div>
+</section>
+<!-- Content Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Main Content Area -->
+<div class="w-full lg:w-2/3 space-y-8">
+<!-- Historia y Misión Card -->
+<article class="bg-surface-container-lowest p-6 md:p-8 border border-outline-variant relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-primary" data-icon="history">history</span>
+                        Historia y Misión
+                    </h2>
+<div class="space-y-4 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+<p>El Centro de Trasbordo Gral. Paz y Cabildo, inaugurado para optimizar la conectividad en el norte porteño, representa un hito en la infraestructura de transporte de la Ciudad. Su creación respondió a la necesidad de integrar múltiples modos de transporte en un solo punto eficiente, seguro y accesible para los miles de pasajeros que cruzan diariamente el límite entre CABA y la zona norte del Gran Buenos Aires.</p>
+<p>Nuestra misión se centra en la constante digitalización y modernización de los servicios. A través de la implementación de sistemas de información en tiempo real, conectividad Wi-Fi de alta velocidad y mejoras estructurales permanentes, buscamos garantizar que el trayecto de cada usuario sea fluido, informado y confortable.</p>
+</div>
+</article>
+<!-- Ubicación y Contacto Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white p-6 border border-outline-variant shadow-sm flex items-start gap-4 h-full">
+<div class="w-12 h-12 bg-primary flex items-center justify-center shrink-0">
+<span aria-hidden="true" class="material-symbols-outlined text-white" data-icon="location_on">location_on</span>
+</div>
+<div>
+<h3 class="font-label-bold text-label-bold text-on-surface uppercase mb-1">Ubicación</h3>
+<address class="not-italic font-body-md text-body-md text-on-surface-variant">
+                                Av. Cabildo y Av. Gral. Paz<br/>
+                                CABA/Vicente López, Argentina
+                            </address>
+</div>
+</div>
+<div class="bg-white p-6 border border-outline-variant shadow-sm flex items-start gap-4 h-full">
+<div class="w-12 h-12 bg-primary-container flex items-center justify-center shrink-0">
+<span aria-hidden="true" class="material-symbols-outlined text-primary" data-icon="call">call</span>
+</div>
+<div>
+<h3 class="font-label-bold text-label-bold text-on-surface uppercase mb-1">Teléfono</h3>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors touch-target flex flex-col justify-center" href="tel:01147001234">
+<span>(011) 4700-1234</span>
+<span class="text-sm opacity-75">Atención 24 Horas</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Servicios Disponibles Card -->
+<section aria-labelledby="services-heading" class="bg-white border border-outline-variant p-6 md:p-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8" id="services-heading">Servicios Disponibles</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-y-10">
+<div class="flex items-center gap-4">
+<div class="touch-target bg-surface-container-low rounded-full">
+<span aria-hidden="true" class="material-symbols-outlined text-primary" data-icon="wifi">wifi</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Wi-Fi Gratuito</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="touch-target bg-surface-container-low rounded-full">
+<span aria-hidden="true" class="material-symbols-outlined text-primary" data-icon="medical_services">medical_services</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Enfermería</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="touch-target bg-surface-container-low rounded-full">
+<span aria-hidden="true" class="material-symbols-outlined text-primary" data-icon="atm">atm</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Cajeros</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="touch-target bg-surface-container-low rounded-full">
+<span aria-hidden="true" class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Patio de Comidas</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="touch-target bg-surface-container-low rounded-full">
+<span aria-hidden="true" class="material-symbols-outlined text-primary" data-icon="accessible">accessible</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Accesibilidad</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="touch-target bg-surface-container-low rounded-full">
+<span aria-hidden="true" class="material-symbols-outlined text-primary" data-icon="lock">lock</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Equipaje</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar: Cómo llegar -->
+<aside class="w-full lg:w-1/3">
+<div class="bg-inverse-surface text-white p-6 md:p-8 border border-outline h-full">
+<h2 class="font-headline-md text-headline-md mb-8 flex items-center gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-primary-fixed" data-icon="directions">directions</span>
+                        Cómo llegar
+                    </h2>
+<!-- COLECTIVOS Section -->
+<section aria-labelledby="bus-heading" class="mb-10">
+<div class="flex items-center gap-2 mb-4 border-b border-outline/50 pb-2">
+<span aria-hidden="true" class="material-symbols-outlined text-sm" data-icon="directions_bus">directions_bus</span>
+<h3 class="font-label-bold text-label-bold uppercase tracking-wider" id="bus-heading">COLECTIVOS</h3>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div aria-label="Línea 21" class="bg-white text-on-surface px-2 py-3 font-label-bold text-center border-l-4 border-primary shadow-sm">21</div>
+<div aria-label="Línea 57" class="bg-white text-on-surface px-2 py-3 font-label-bold text-center border-l-4 border-primary shadow-sm">57</div>
+<div aria-label="Línea 60" class="bg-white text-on-surface px-2 py-3 font-label-bold text-center border-l-4 border-primary shadow-sm">60</div>
+<div aria-label="Línea 194" class="bg-white text-on-surface px-2 py-3 font-label-bold text-center border-l-4 border-primary shadow-sm">194</div>
+<div aria-label="Línea 161" class="bg-white text-on-surface px-2 py-3 font-label-bold text-center border-l-4 border-primary shadow-sm">161</div>
+<div aria-label="Línea 168" class="bg-white text-on-surface px-2 py-3 font-label-bold text-center border-l-4 border-primary shadow-sm">168</div>
+</div>
+</section>
+<!-- SUBTE Section -->
+<section aria-labelledby="subway-heading" class="mb-10">
+<div class="flex items-center gap-2 mb-4 border-b border-outline/50 pb-2">
+<span aria-hidden="true" class="material-symbols-outlined text-sm" data-icon="subway">subway</span>
+<h3 class="font-label-bold text-label-bold uppercase tracking-wider" id="subway-heading">SUBTE</h3>
+</div>
+<div class="flex items-center gap-4">
+<div aria-label="Línea D" class="w-10 h-10 bg-[#0081C9] flex items-center justify-center font-bold text-lg rounded-sm shrink-0">D</div>
+<span class="font-body-md text-body-md leading-tight">Línea D (Congreso de Tucumán)</span>
+</div>
+</section>
+<!-- TREN Section -->
+<section aria-labelledby="train-heading">
+<div class="flex items-center gap-2 mb-4 border-b border-outline/50 pb-2">
+<span aria-hidden="true" class="material-symbols-outlined text-sm" data-icon="train">train</span>
+<h3 class="font-label-bold text-label-bold uppercase tracking-wider" id="train-heading">TREN</h3>
+</div>
+<ul class="space-y-6">
+<li class="flex items-start gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-primary-fixed mt-0.5" data-icon="chevron_right">chevron_right</span>
+<span class="font-body-md text-body-md">Ferrocarril Mitre (Estación Rivadavia)</span>
+</li>
+<li class="flex items-start gap-3">
+<span aria-hidden="true" class="material-symbols-outlined text-primary-fixed mt-0.5" data-icon="chevron_right">chevron_right</span>
+<span class="font-body-md text-body-md">Ferrocarril Belgrano Norte (Aristóbulo del Valle)</span>
+</li>
+</ul>
+</section>
+</div>
+</aside>
+</div>
+</section>
+</main>
+<!-- Standardized Footer -->
+<footer class="bg-surface-container dark:bg-inverse-surface border-t border-outline-variant dark:border-outline mt-12">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-center md:text-left">
+<span class="font-label-bold text-label-bold text-on-surface dark:text-surface-bright">SmartTransit BA</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant">© 2024 SmartTransit BA. Todos los derechos reservados.</span>
+</div>
+<nav aria-label="Enlaces legales" class="flex flex-wrap justify-center gap-x-6 gap-y-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary transition-colors touch-target" href="#">Términos de Uso</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary transition-colors touch-target" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary transition-colors touch-target" href="#">Contacto</a>
+</nav>
+</div>
+</div>
+</footer>
+<script>
+  // Mobile Menu Logic
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = menuToggle.querySelector('.material-symbols-outlined');
+
+  menuToggle.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    mobileMenu.classList.toggle('hidden');
+    
+    // Switch icon between menu and close
+    menuIcon.textContent = isExpanded ? 'menu' : 'close';
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuIcon.textContent = 'menu';
+    }
+  });
+</script>
+</body></html>
