@@ -1,366 +1,434 @@
 <!DOCTYPE html>
 
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SmartTransit BA - Boletería</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "surface-container-high": "#eae7e7",
-                    "on-secondary": "#ffffff",
-                    "tertiary-fixed-dim": "#c4c7c9",
-                    "on-error-container": "#93000a",
-                    "error-container": "#ffdad6",
-                    "surface-container-lowest": "#ffffff",
-                    "on-error": "#ffffff",
-                    "secondary": "#546067",
-                    "on-tertiary-fixed-variant": "#434749",
-                    "on-surface": "#1b1c1c",
-                    "on-primary-fixed": "#001b3d",
-                    "surface-container-low": "#f6f3f2",
-                    "outline": "#727783",
-                    "surface-container-highest": "#e5e2e1",
-                    "tertiary-fixed": "#e0e3e5",
-                    "on-tertiary": "#ffffff",
-                    "on-secondary-fixed": "#111d23",
-                    "primary-fixed-dim": "#a9c7ff",
-                    "on-secondary-fixed-variant": "#3c494f",
-                    "primary": "#004d99",
-                    "outline-variant": "#c2c6d4",
-                    "on-tertiary-fixed": "#181c1e",
-                    "inverse-on-surface": "#f3f0ef",
-                    "background": "#fcf9f8",
-                    "primary-container": "#1565c0",
-                    "surface-dim": "#dcd9d9",
-                    "inverse-primary": "#a9c7ff",
-                    "secondary-fixed": "#d7e4ec",
-                    "on-secondary-container": "#5a666d",
-                    "on-primary-container": "#dae5ff",
-                    "error": "#ba1a1a",
-                    "tertiary-container": "#636769",
-                    "primary-fixed": "#d6e3ff",
-                    "surface-tint": "#005db7",
-                    "secondary-container": "#d7e4ec",
-                    "on-background": "#1b1c1c",
-                    "secondary-fixed-dim": "#bbc8d0",
-                    "on-primary": "#ffffff",
-                    "surface-variant": "#e5e2e1",
-                    "on-tertiary-container": "#e3e6e8",
-                    "on-surface-variant": "#424752",
-                    "surface-container": "#f0eded",
-                    "surface": "#fcf9f8",
-                    "inverse-surface": "#303030",
-                    "tertiary": "#4b4f51",
-                    "surface-bright": "#fcf9f8",
-                    "on-primary-fixed-variant": "#00468c"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "spacing": {
-                    "unit": "8px",
-                    "container-max": "1280px",
-                    "margin-mobile": "16px",
-                    "gutter": "16px",
-                    "margin-desktop": "32px"
-            },
-            "fontFamily": {
-                    "headline-lg-mobile": ["Public Sans"],
-                    "body-lg": ["Public Sans"],
-                    "headline-lg": ["Public Sans"],
-                    "label-sm": ["Public Sans"],
-                    "label-bold": ["Public Sans"],
-                    "headline-md": ["Public Sans"],
-                    "body-md": ["Public Sans"],
-                    "display-platform": ["Public Sans"]
-            },
-            "fontSize": {
-                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
-                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
-                    "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "700"}],
-                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "display-platform": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
-            }
+<html class="light" lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>SmartTransit BA - Boletería</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface": "#1b1c1c",
+            "outline": "#727783",
+            "on-primary-fixed-variant": "#00468c",
+            "primary-fixed-dim": "#a9c7ff",
+            "on-surface-variant": "#424752",
+            "surface-container-highest": "#e5e2e1",
+            "tertiary-fixed": "#e0e3e5",
+            "on-error-container": "#93000a",
+            "surface-dim": "#dcd9d9",
+            "on-secondary-fixed": "#111d23",
+            "tertiary-container": "#636769",
+            "background": "#fcf9f8",
+            "secondary-fixed-dim": "#bbc8d0",
+            "secondary": "#546067",
+            "on-secondary-fixed-variant": "#3c494f",
+            "error": "#ba1a1a",
+            "surface-variant": "#e5e2e1",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#dae5ff",
+            "surface-tint": "#005db7",
+            "primary-fixed": "#d6e3ff",
+            "secondary-container": "#d7e4ec",
+            "on-tertiary-container": "#e3e6e8",
+            "on-secondary-container": "#5a666d",
+            "on-tertiary-fixed-variant": "#434749",
+            "surface-bright": "#fcf9f8",
+            "primary": "#004d99",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#001b3d",
+            "inverse-on-surface": "#f3f0ef",
+            "secondary-fixed": "#d7e4ec",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed-dim": "#c4c7c9",
+            "surface": "#fcf9f8",
+            "surface-container-high": "#eae7e7",
+            "inverse-primary": "#a9c7ff",
+            "surface-container": "#f0eded",
+            "tertiary": "#4b4f51",
+            "primary-container": "#1565c0",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#f6f3f2",
+            "on-tertiary-fixed": "#181c1e",
+            "on-background": "#1b1c1c",
+            "inverse-surface": "#303030",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c2c6d4",
+            "status-ontime": "#2e7d32",
+            "status-ontime-wash": "#d8efd9",
+            "status-ontime-ink": "#1b5e20",
+            "status-delayed": "#ff8f00",
+            "status-delayed-wash": "#ffecc7",
+            "status-delayed-ink": "#b25e00",
+            "status-canceled": "#ba1a1a",
+            "status-canceled-wash": "#ffdad6",
+            "status-canceled-ink": "#93000a"
           },
-        },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem",
+            "xs": "2px",
+            "sm": "4px",
+            "md": "6px",
+            "pill": "9999px"
+          },
+          spacing: {
+            "margin-mobile": "16px",
+            "margin-desktop": "32px",
+            "gutter": "16px",
+            "container-max": "1280px",
+            "unit": "8px"
+          },
+          fontFamily: {
+            "sans": ["Public Sans", "sans-serif"],
+            "numeric": ["Public Sans", "monospace"]
+          }
+        }
       }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body { background-color: #fcf9f8; font-family: 'Public Sans', sans-serif; }
-        /* High contrast focus states */
-        :focus-visible {
-            outline: 3px solid #004d99;
-            outline-offset: 2px;
-        }
-        /* Ensure touch targets meet 48px minimum */
-        button, a, input, summary {
-            min-height: 48px;
-            min-width: 44px; /* standard mobile tap target */
-        }
-    </style>
-</head>
-<body class="text-on-surface">
-<!-- TopNavBar -->
-<header class="bg-white border-b border-outline-variant sticky top-0 z-[100]">
-<div class="max-w-container-max mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between h-16 items-center">
-<!-- Logo Area -->
-<a href="index.html" class="flex items-center gap-3 hover:opacity-90 transition-opacity" aria-label="SmartTransit BA Inicio">
-<div aria-hidden="true" class="bg-primary p-2 rounded-lg">
-<span class="material-symbols-outlined text-white text-2xl">directions_bus</span>
-</div>
-<div>
-<span class="text-xl font-extrabold tracking-tight text-primary">SmartTransit BA</span>
-</div>
-</a>
-<!-- Desktop Navigation -->
-<nav aria-label="Navegación principal" class="hidden md:flex space-x-6 items-center h-full">
-<a aria-label="Ver líneas de colectivos" class="text-on-surface-variant hover:text-primary font-medium transition-colors h-full flex items-center px-2" href="colectivos.html">Líneas de Colectivos</a>
-<a aria-current="page" class="text-primary font-bold border-b-4 border-primary h-full flex items-center px-2" href="boleteria.html">Boletería</a>
-<a aria-label="Más información" class="text-on-surface-variant hover:text-primary font-medium transition-colors h-full flex items-center px-2" href="informacion.html">Información</a>
-<a aria-label="Ver mapa principal" class="text-on-surface-variant hover:text-primary font-medium transition-colors h-full flex items-center px-2" href="index.html">Mapa Principal</a>
-</nav>
-<!-- Mobile Menu Button -->
-<div class="md:hidden flex items-center">
-<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú de navegación" class="w-12 h-12 flex items-center justify-center text-on-surface focus:outline-none focus:ring-2 focus:ring-primary rounded-lg" id="menu-toggle" type="button">
-<span class="material-symbols-outlined text-3xl">menu</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Mobile Navigation Overlay -->
-<div class="hidden md:hidden bg-white border-b border-outline-variant" id="mobile-menu">
-<nav aria-label="Navegación móvil" class="flex flex-col py-2">
-<a class="flex items-center px-6 h-[56px] text-on-surface-variant hover:bg-surface-container-low" href="index.html">Mapa Principal</a>
-<a class="flex items-center px-6 h-[56px] text-on-surface-variant hover:bg-surface-container-low border-t border-outline-variant" href="colectivos.html">Líneas de Colectivos</a>
-<a aria-current="page" class="flex items-center px-6 h-[56px] text-primary font-bold bg-surface-container-low border-t border-outline-variant" href="boleteria.html">Boletería</a>
-<a class="flex items-center px-6 h-[56px] text-on-surface-variant hover:bg-surface-container-low border-t border-outline-variant" href="informacion.html">Información</a>
-</nav>
-</div>
-</header>
-<main class="pb-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-8" id="main-content">
-<!-- Hero Search Section -->
-<section aria-labelledby="hero-title" class="mb-12 bg-primary-container rounded-lg overflow-hidden flex flex-col md:flex-row shadow-sm border border-outline-variant/20">
-<div class="flex-1 p-8 lg:p-12 flex flex-col justify-center bg-primary text-on-primary">
-<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4" id="hero-title">Venta de Pasajes</h1>
-<p class="font-body-lg text-body-lg opacity-90 mb-8">Consulta disponibilidad y adquiere tus boletos para servicios de larga distancia de forma rápida y segura desde el Centro de Trasbordo Gral. Paz y Cabildo.</p>
-<!-- Availability Search Form -->
-<form action="#" class="bg-surface-container-lowest p-6 rounded-lg text-on-surface flex flex-col md:flex-row gap-4 items-end shadow-lg" method="GET" role="search">
-<div class="w-full md:flex-1">
-<label class="font-label-bold text-label-bold block mb-2 text-on-surface-variant" for="origin">Origen</label>
-<input class="w-full border-2 border-outline-variant focus:border-primary p-3 rounded font-body-md text-body-md outline-none min-h-[48px]" id="origin" name="origin" placeholder="Ciudad de origen" required="" type="text"/>
-</div>
-<div class="w-full md:flex-1">
-<label class="font-label-bold text-label-bold block mb-2 text-on-surface-variant" for="destination">Destino</label>
-<input class="w-full border-2 border-outline-variant focus:border-primary p-3 rounded font-body-md text-body-md outline-none min-h-[48px]" id="destination" name="destination" placeholder="Ciudad de destino" required="" type="text"/>
-</div>
-<div class="w-full md:w-auto">
-<button class="w-full bg-primary-container text-on-primary-container font-label-bold text-label-bold py-3.5 px-8 rounded flex items-center justify-center gap-2 hover:bg-primary-container/90 transition-colors min-h-[48px]" type="submit">
-<span aria-hidden="true" class="material-symbols-outlined">search</span>
-                            Consultar
-                        </button>
-</div>
-</form>
-</div>
-<div aria-hidden="true" class="hidden md:block w-1/3 relative overflow-hidden">
-<img alt="" class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArvDn60QlmE5GrAKYb82UiEq2AHnb-KJuPkKukeMBlgZNSmaGyOa4GTJHSmAWcMFJ-YANESfXb6HbFpd1iBrcYzGbJZqkxL0N4ncvF9otMSBPOdnkW1WD_ilBen6wUpgbklTBJVHyacjKQGl3ukyHRDxrdTu1j32B4-0iSdP5XHWnqEsb5-P5GTlOzQbaxCxQSp7ifox5U-US0YD0d9FjJ5WurmnymcOfWZ4RvDpWqtFEvMgdp1Vrb6aVwOm6IL8Oo_-UL9d6n-l6w"/>
-<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
-</div>
-</section>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-<!-- Information Main Content -->
-<div class="lg:col-span-8 space-y-8">
-<!-- Service Status & Hours -->
-<section aria-labelledby="hours-title" class="bg-surface border-l-4 border-primary p-6 md:p-8 rounded shadow-sm border-y border-r border-outline-variant/30">
-<div class="flex flex-col sm:flex-row justify-between items-start mb-6 gap-4">
-<div>
-<h2 class="font-headline-md text-headline-md mb-1" id="hours-title">Horarios de Atención</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Centro de Atención Presencial y Boleterías en Gral. Paz y Cabildo</p>
-</div>
-<span class="bg-[#2E7D32] text-white px-3 py-1 font-label-bold text-label-sm uppercase tracking-wider rounded-sm shrink-0">Abierto</span>
-</div>
-<div class="flex items-center gap-4 mb-8">
-<span aria-hidden="true" class="material-symbols-outlined text-primary text-[40px]">schedule</span>
-<div aria-label="06:00 a 22:00" class="text-display-platform font-display-platform leading-none">06:00 - 22:00</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="p-4 bg-surface-container-low rounded border border-outline-variant/10">
-<h3 class="font-label-bold text-label-bold block mb-1">Lunes a Viernes</h3>
-<span class="font-body-md text-body-md">06:00 a 22:00 hs</span>
-</div>
-<div class="p-4 bg-surface-container-low rounded border border-outline-variant/10">
-<h3 class="font-label-bold text-label-bold block mb-1">Sábados, Domingos y Feriados</h3>
-<span class="font-body-md text-body-md">08:00 a 20:00 hs</span>
-</div>
-</div>
-</section>
-<!-- Payment Methods -->
-<section aria-labelledby="payment-title" class="bg-surface p-6 md:p-8 rounded shadow-sm border border-outline-variant/30">
-<h2 class="font-headline-md text-headline-md mb-6" id="payment-title">Medios de Pago Aceptados</h2>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-<div class="flex flex-col items-center p-6 border border-outline-variant/30 rounded text-center gap-3">
-<span aria-hidden="true" class="material-symbols-outlined text-primary text-4xl">payments</span>
-<span class="font-label-bold text-label-bold">Efectivo</span>
-</div>
-<div class="flex flex-col items-center p-6 border border-outline-variant/30 rounded text-center gap-3">
-<span aria-hidden="true" class="material-symbols-outlined text-primary text-4xl">credit_card</span>
-<span class="font-label-bold text-label-bold">Débito / Crédito</span>
-</div>
-<div class="flex flex-col items-center p-6 border border-outline-variant/30 rounded text-center gap-3">
-<span aria-hidden="true" class="material-symbols-outlined text-primary text-4xl">smart_card_reader</span>
-<span class="font-label-bold text-label-bold">Tarjeta SUBE</span>
-</div>
-<div class="flex flex-col items-center p-6 border border-outline-variant/30 rounded text-center gap-3">
-<span aria-hidden="true" class="material-symbols-outlined text-primary text-4xl">qr_code_2</span>
-<span class="font-label-bold text-label-bold">Billeteras Virtuales</span>
-</div>
-</div>
-</section>
-<!-- FAQ Section -->
-<section aria-labelledby="faq-title" class="bg-surface p-6 md:p-8 rounded shadow-sm border border-outline-variant/30">
-<h2 class="font-headline-md text-headline-md mb-6" id="faq-title">Preguntas Frecuentes</h2>
-<div class="space-y-4">
-<details class="group border-b border-outline-variant/20">
-<summary class="flex justify-between items-center cursor-pointer list-none py-4 focus:bg-surface-container-low px-2 rounded-sm outline-none transition-colors">
-<span class="font-label-bold text-label-bold text-on-surface">¿Cómo solicito un reembolso de pasaje?</span>
-<span aria-hidden="true" class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="pb-6 px-2">
-<p class="font-body-md text-body-md text-on-surface-variant">Los reembolsos se gestionan directamente en la ventanilla de la empresa transportista en el Centro de Trasbordo. El porcentaje de devolución depende de la antelación con la que se solicite.</p>
-</div>
-</details>
-<details class="group border-b border-outline-variant/20">
-<summary class="flex justify-between items-center cursor-pointer list-none py-4 focus:bg-surface-container-low px-2 rounded-sm outline-none transition-colors">
-<span class="font-label-bold text-label-bold text-on-surface">¿Puedo comprar pasajes con SUBE para larga distancia?</span>
-<span aria-hidden="true" class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="pb-6 px-2">
-<p class="font-body-md text-body-md text-on-surface-variant">No, la tarjeta SUBE solo es válida para servicios urbanos e interurbanos de corta distancia que operan en Gral. Paz y Cabildo. Para larga distancia debe utilizar efectivo o tarjetas bancarias.</p>
-</div>
-</details>
-<details class="group border-b border-outline-variant/20">
-<summary class="flex justify-between items-center cursor-pointer list-none py-4 focus:bg-surface-container-low px-2 rounded-sm outline-none transition-colors">
-<span class="font-label-bold text-label-bold text-on-surface">¿Qué documentación necesito para viajar?</span>
-<span aria-hidden="true" class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-</summary>
-<div class="pb-6 px-2">
-<p class="font-body-md text-body-md text-on-surface-variant">Es obligatorio presentar el DNI físico original y el boleto (impreso o digital) al momento de abordar la unidad en la dársena correspondiente.</p>
-</div>
-</details>
-</div>
-</section>
-</div>
-<!-- Sidebar -->
-<aside class="lg:col-span-4 space-y-8">
-<!-- Contact Sidebar Card -->
-<section aria-labelledby="help-title" class="bg-primary text-on-primary p-8 rounded shadow-sm">
-<h3 class="font-headline-md text-headline-md mb-4" id="help-title">¿Necesitas ayuda?</h3>
-<p class="font-body-md text-body-md mb-6 opacity-90">Nuestro equipo técnico está disponible para asistirte con problemas en la compra online o servicios en la terminal.</p>
-<div class="space-y-4 mb-8">
-<div class="flex items-center gap-3">
-<span aria-hidden="true" class="material-symbols-outlined">call</span>
-<a class="font-label-bold text-label-bold hover:underline" href="tel:080087267486">0800-TRANSITO</a>
-</div>
-<div class="flex items-center gap-3">
-<span aria-hidden="true" class="material-symbols-outlined">mail</span>
-<a class="font-label-bold text-label-bold hover:underline" href="mailto:ayuda@trasbordo.gob.ar">ayuda@trasbordo.gob.ar</a>
-</div>
-</div>
-<button class="w-full bg-white text-primary py-3 rounded font-label-bold text-label-bold hover:bg-surface-container-high transition-colors min-h-[48px]">
-                        Iniciar Chat en Vivo
-                    </button>
-</section>
-<!-- Wayfinding Chips / Quick Links -->
-<section aria-labelledby="quick-links-title" class="bg-surface p-6 rounded shadow-sm border border-outline-variant/30">
-<h3 class="font-label-bold text-label-bold mb-4 uppercase tracking-tighter text-outline" id="quick-links-title">Accesos Rápidos</h3>
-<div class="flex flex-wrap gap-2 mb-6">
-<a class="bg-on-surface text-surface px-3 py-2 text-label-sm font-label-bold flex items-center gap-2 hover:bg-on-surface-variant transition-colors min-h-[40px] rounded-sm" href="colectivos.html">
-<span aria-hidden="true" class="material-symbols-outlined text-[16px]">directions_bus</span> BUS
-                        </a>
-<a class="bg-on-surface text-surface px-3 py-2 text-label-sm font-label-bold flex items-center gap-2 hover:bg-on-surface-variant transition-colors min-h-[40px] rounded-sm" href="informacion.html#train-heading">
-<span aria-hidden="true" class="material-symbols-outlined text-[16px]">train</span> TREN
-                        </a>
-<a class="bg-on-surface text-surface px-3 py-2 text-label-sm font-label-bold flex items-center gap-2 hover:bg-on-surface-variant transition-colors min-h-[40px] rounded-sm" href="informacion.html#subway-heading">
-<span aria-hidden="true" class="material-symbols-outlined text-[16px]">subway</span> SUBTE
-                        </a>
-</div>
-<nav aria-label="Enlaces de terminal" class="space-y-2">
-<a class="block p-4 border border-outline-variant/30 rounded font-body-md text-body-md hover:border-primary hover:text-primary transition-all bg-white" href="index.html">Ver Mapa de Terminales</a>
-<a class="block p-4 border border-outline-variant/30 rounded font-body-md text-body-md hover:border-primary hover:text-primary transition-all bg-white" href="informacion.html#services-heading">Puntos de Carga SUBE</a>
-<a class="block p-4 border border-outline-variant/30 rounded font-body-md text-body-md hover:border-primary hover:text-primary transition-all bg-white" href="informacion.html#services-heading">Servicios para Discapacidad</a>
-</nav>
-</section>
-</aside>
-</div>
-</main>
-<!-- Footer -->
-<footer class="bg-surface-container border-t border-outline-variant">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
-<div class="flex flex-col md:flex-row justify-between items-center gap-6">
-<div class="font-label-bold text-label-bold text-on-surface uppercase tracking-wider">
-                    SmartTransit BA
-                </div>
-<div class="text-on-surface-variant font-label-sm text-label-sm text-center md:text-left">
-                    © 2024 Centro de Trasbordo Gral. Paz y Cabildo. Todos los derechos reservados.
-                </div>
-<nav aria-label="Información legal" class="flex gap-6">
-<a class="text-on-surface-variant font-label-sm text-label-sm hover:underline hover:text-primary transition-colors" href="#">Términos de Uso</a>
-<a class="text-on-surface-variant font-label-sm text-label-sm hover:underline hover:text-primary transition-colors" href="#">Privacidad</a>
-<a class="text-on-surface-variant font-label-sm text-label-sm hover:underline hover:text-primary transition-colors" href="#">Contacto</a>
-</nav>
-</div>
-</div>
-</footer>
-<!-- Interactive Search Form Labels Micro-interaction -->
-<script>
-  document.querySelectorAll('input').forEach(input => {
-      input.addEventListener('focus', function() {
-          const label = document.querySelector(`label[for="${this.id}"]`);
-          if (label) label.classList.add('text-primary');
-      });
-      input.addEventListener('blur', function() {
-          const label = document.querySelector(`label[for="${this.id}"]`);
-          if (label) label.classList.remove('text-primary');
-      });
-  });
-
-  // Mobile Menu Logic
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = menuToggle.querySelector('.material-symbols-outlined');
-
-  menuToggle.addEventListener('click', () => {
-    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', !isExpanded);
-    mobileMenu.classList.toggle('hidden');
-    
-    // Switch icon between menu and close
-    menuIcon.textContent = isExpanded ? 'menu' : 'close';
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
-      mobileMenu.classList.add('hidden');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuIcon.textContent = 'menu';
     }
-  });
-</script>
-</body></html>
+  </script>
+  <style>
+    @keyframes marquee {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+
+      to {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .animate-marquee {
+      animation: marquee 38s linear infinite;
+    }
+
+    :focus-visible {
+      outline: 3px solid #004d99;
+      outline-offset: 2px;
+    }
+
+    /* Ensure touch targets meet 48px minimum */
+    button,
+    input,
+    summary {
+      min-height: 48px;
+      min-width: 44px;
+      /* standard mobile tap target */
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-surface text-on-surface flex flex-col min-h-screen">
+  <!-- Header -->
+  <header class="sticky top-0 z-[100] bg-white border-b border-outline-variant">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="inline-flex items-baseline gap-[7px]">
+          <b class="font-extrabold text-[21px] tracking-tight text-on-surface">SmartTransit</b>
+          <i class="not-italic font-bold text-[21px] tracking-wider text-primary">BA</i>
+        </a>
+        <nav class="hidden md:flex gap-1 items-center h-full">
+          <a href="colectivos.html"
+            class="flex items-center h-full px-3.5 font-medium text-[15px] text-on-surface-variant border-b-4 border-transparent hover:text-primary transition-colors">Líneas
+            de Colectivos</a>
+          <a href="boleteria.html"
+            class="flex items-center h-full px-3.5 font-bold text-[15px] text-primary border-b-4 border-primary">Boletería</a>
+          <a href="informacion.html"
+            class="flex items-center h-full px-3.5 font-medium text-[15px] text-on-surface-variant border-b-4 border-transparent hover:text-primary transition-colors">Información</a>
+          <a href="index.html"
+            class="flex items-center h-full px-3.5 font-medium text-[15px] text-on-surface-variant border-b-4 border-transparent hover:text-primary transition-colors">Terminal</a>
+        </nav>
+        <button
+          class="md:hidden w-12 h-12 flex items-center justify-center bg-transparent border-0 text-on-surface cursor-pointer"
+          id="burger" aria-label="Abrir menú">
+          <span class="material-symbols-outlined text-[30px]">menu</span>
+        </button>
+      </div>
+    </div>
+    <nav class="hidden border-t border-outline-variant bg-white" id="mnav">
+      <a href="index.html"
+        class="flex items-center h-14 px-6 border-b border-outline-variant font-medium text-on-surface-variant">Terminal</a>
+      <a href="colectivos.html"
+        class="flex items-center h-14 px-6 border-b border-outline-variant font-medium text-on-surface-variant">Líneas
+        de Colectivos</a>
+      <a href="boleteria.html"
+        class="flex items-center h-14 px-6 border-b border-outline-variant font-bold text-primary bg-surface-container-low">Boletería</a>
+      <a href="informacion.html"
+        class="flex items-center h-14 px-6 border-b border-outline-variant font-medium text-on-surface-variant">Información</a>
+    </nav>
+    <div class="bg-status-delayed overflow-hidden py-1.5 border-b border-[#b25e00]">
+      <span class="inline-block whitespace-nowrap font-bold text-xs text-[#3a2400] animate-marquee">
+        Línea 21 · Próximo en 2 min — Ramal Florida&nbsp;&nbsp;|&nbsp;&nbsp;Línea 60 · En andén — Ramal
+        Tigre&nbsp;&nbsp;|&nbsp;&nbsp;Línea 57 · Próximo en 8 min — Pilar Express&nbsp;&nbsp;|&nbsp;&nbsp;Línea 194 ·
+        Próximo en 11 min — Don Torcuato&nbsp;&nbsp;|&nbsp;&nbsp;Línea 21 · Próximo en 2 min — Ramal
+        Florida&nbsp;&nbsp;|&nbsp;&nbsp;Línea 60 · En andén — Ramal Tigre&nbsp;&nbsp;|&nbsp;&nbsp;Línea 57 · Próximo en
+        8 min — Pilar Express&nbsp;&nbsp;|&nbsp;&nbsp;Línea 194 · Próximo en 11 min — Don
+        Torcuato&nbsp;&nbsp;|&nbsp;&nbsp;
+      </span>
+    </div>
+  </header>
+  <main class="pb-20 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-8" id="main-content">
+    <!-- Hero Search Section -->
+    <section aria-labelledby="hero-title"
+      class="mb-12 bg-primary-container rounded-lg overflow-hidden flex flex-col md:flex-row shadow-sm border border-outline-variant/20">
+      <div class="flex-1 p-8 lg:p-12 flex flex-col justify-center bg-primary text-on-primary">
+        <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4" id="hero-title">Venta de Pasajes
+        </h1>
+        <p class="font-body-lg text-body-lg opacity-90 mb-8">Consulta disponibilidad y adquiere tus boletos para
+          servicios de larga distancia de forma rápida y segura desde el Centro de Trasbordo Gral. Paz y Cabildo.</p>
+        <!-- Availability Search Form -->
+        <form action="#"
+          class="bg-surface-container-lowest p-6 rounded-lg text-on-surface flex flex-col md:flex-row gap-4 items-end shadow-lg"
+          method="GET" role="search">
+          <div class="w-full md:flex-1">
+            <label class="font-label-bold text-label-bold block mb-2 text-on-surface-variant"
+              for="origin">Origen</label>
+            <input
+              class="w-full border-2 border-outline-variant focus:border-primary p-3 rounded font-body-md text-body-md outline-none min-h-[48px]"
+              id="origin" name="origin" placeholder="Ciudad de origen" required="" type="text" />
+          </div>
+          <div class="w-full md:flex-1">
+            <label class="font-label-bold text-label-bold block mb-2 text-on-surface-variant"
+              for="destination">Destino</label>
+            <input
+              class="w-full border-2 border-outline-variant focus:border-primary p-3 rounded font-body-md text-body-md outline-none min-h-[48px]"
+              id="destination" name="destination" placeholder="Ciudad de destino" required="" type="text" />
+          </div>
+          <div class="w-full md:w-auto">
+            <button
+              class="w-full bg-primary-container text-on-primary-container font-label-bold text-label-bold py-3.5 px-8 rounded flex items-center justify-center gap-2 hover:bg-primary-container/90 transition-colors min-h-[48px]"
+              type="submit">
+              <span aria-hidden="true" class="material-symbols-outlined">search</span>
+              Consultar
+            </button>
+          </div>
+        </form>
+      </div>
+      <div aria-hidden="true" class="hidden md:block w-1/3 relative overflow-hidden">
+        <img alt="" class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] contrast-125"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuArvDn60QlmE5GrAKYb82UiEq2AHnb-KJuPkKukeMBlgZNSmaGyOa4GTJHSmAWcMFJ-YANESfXb6HbFpd1iBrcYzGbJZqkxL0N4ncvF9otMSBPOdnkW1WD_ilBen6wUpgbklTBJVHyacjKQGl3ukyHRDxrdTu1j32B4-0iSdP5XHWnqEsb5-P5GTlOzQbaxCxQSp7ifox5U-US0YD0d9FjJ5WurmnymcOfWZ4RvDpWqtFEvMgdp1Vrb6aVwOm6IL8Oo_-UL9d6n-l6w" />
+        <div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+      </div>
+    </section>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Information Main Content -->
+      <div class="lg:col-span-8 space-y-8">
+        <!-- Service Status & Hours -->
+        <section aria-labelledby="hours-title"
+          class="bg-surface border-l-4 border-primary p-6 md:p-8 rounded shadow-sm border-y border-r border-outline-variant/30">
+          <div class="flex flex-col sm:flex-row justify-between items-start mb-6 gap-4">
+            <div>
+              <h2 class="font-headline-md text-headline-md mb-1" id="hours-title">Horarios de Atención</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">Centro de Atención Presencial y Boleterías en
+                Gral. Paz y Cabildo</p>
+            </div>
+            <span
+              class="bg-[#2E7D32] text-white px-3 py-1 font-label-bold text-label-sm uppercase tracking-wider rounded-sm shrink-0">Abierto</span>
+          </div>
+          <div class="flex items-center gap-4 mb-8">
+            <span aria-hidden="true" class="material-symbols-outlined text-primary text-[40px]">schedule</span>
+            <div aria-label="06:00 a 22:00" class="text-display-platform font-display-platform leading-none">06:00 -
+              22:00</div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 bg-surface-container-low rounded border border-outline-variant/10">
+              <h3 class="font-label-bold text-label-bold block mb-1">Lunes a Viernes</h3>
+              <span class="font-body-md text-body-md">06:00 a 22:00 hs</span>
+            </div>
+            <div class="p-4 bg-surface-container-low rounded border border-outline-variant/10">
+              <h3 class="font-label-bold text-label-bold block mb-1">Sábados, Domingos y Feriados</h3>
+              <span class="font-body-md text-body-md">08:00 a 20:00 hs</span>
+            </div>
+          </div>
+        </section>
+        <!-- Payment Methods -->
+        <section aria-labelledby="payment-title"
+          class="bg-surface p-6 md:p-8 rounded shadow-sm border border-outline-variant/30">
+          <h2 class="font-headline-md text-headline-md mb-6" id="payment-title">Medios de Pago Aceptados</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="flex flex-col items-center p-6 border border-outline-variant/30 rounded text-center gap-3">
+              <span aria-hidden="true" class="material-symbols-outlined text-primary text-4xl">payments</span>
+              <span class="font-label-bold text-label-bold">Efectivo</span>
+            </div>
+            <div class="flex flex-col items-center p-6 border border-outline-variant/30 rounded text-center gap-3">
+              <span aria-hidden="true" class="material-symbols-outlined text-primary text-4xl">credit_card</span>
+              <span class="font-label-bold text-label-bold">Débito / Crédito</span>
+            </div>
+            <div class="flex flex-col items-center p-6 border border-outline-variant/30 rounded text-center gap-3">
+              <span aria-hidden="true" class="material-symbols-outlined text-primary text-4xl">smart_card_reader</span>
+              <span class="font-label-bold text-label-bold">Tarjeta SUBE</span>
+            </div>
+            <div class="flex flex-col items-center p-6 border border-outline-variant/30 rounded text-center gap-3">
+              <span aria-hidden="true" class="material-symbols-outlined text-primary text-4xl">qr_code_2</span>
+              <span class="font-label-bold text-label-bold">Billeteras Virtuales</span>
+            </div>
+          </div>
+        </section>
+        <!-- FAQ Section -->
+        <section aria-labelledby="faq-title"
+          class="bg-surface p-6 md:p-8 rounded shadow-sm border border-outline-variant/30">
+          <h2 class="font-headline-md text-headline-md mb-6" id="faq-title">Preguntas Frecuentes</h2>
+          <div class="space-y-4">
+            <details class="group border-b border-outline-variant/20">
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none py-4 focus:bg-surface-container-low px-2 rounded-sm outline-none transition-colors">
+                <span class="font-label-bold text-label-bold text-on-surface">¿Cómo solicito un reembolso de
+                  pasaje?</span>
+                <span aria-hidden="true"
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+              </summary>
+              <div class="pb-6 px-2">
+                <p class="font-body-md text-body-md text-on-surface-variant">Los reembolsos se gestionan directamente en
+                  la ventanilla de la empresa transportista en el Centro de Trasbordo. El porcentaje de devolución
+                  depende de la antelación con la que se solicite.</p>
+              </div>
+            </details>
+            <details class="group border-b border-outline-variant/20">
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none py-4 focus:bg-surface-container-low px-2 rounded-sm outline-none transition-colors">
+                <span class="font-label-bold text-label-bold text-on-surface">¿Puedo comprar pasajes con SUBE para larga
+                  distancia?</span>
+                <span aria-hidden="true"
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+              </summary>
+              <div class="pb-6 px-2">
+                <p class="font-body-md text-body-md text-on-surface-variant">No, la tarjeta SUBE solo es válida para
+                  servicios urbanos e interurbanos de corta distancia que operan en Gral. Paz y Cabildo. Para larga
+                  distancia debe utilizar efectivo o tarjetas bancarias.</p>
+              </div>
+            </details>
+            <details class="group border-b border-outline-variant/20">
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none py-4 focus:bg-surface-container-low px-2 rounded-sm outline-none transition-colors">
+                <span class="font-label-bold text-label-bold text-on-surface">¿Qué documentación necesito para
+                  viajar?</span>
+                <span aria-hidden="true"
+                  class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+              </summary>
+              <div class="pb-6 px-2">
+                <p class="font-body-md text-body-md text-on-surface-variant">Es obligatorio presentar el DNI físico
+                  original y el boleto (impreso o digital) al momento de abordar la unidad en la dársena
+                  correspondiente.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </div>
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-8">
+        <!-- Contact Sidebar Card -->
+        <section aria-labelledby="help-title" class="bg-primary text-on-primary p-8 rounded shadow-sm">
+          <h3 class="font-headline-md text-headline-md mb-4" id="help-title">¿Necesitas ayuda?</h3>
+          <p class="font-body-md text-body-md mb-6 opacity-90">Nuestro equipo técnico está disponible para asistirte con
+            problemas en la compra online o servicios en la terminal.</p>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3">
+              <span aria-hidden="true" class="material-symbols-outlined">call</span>
+              <a class="font-label-bold text-label-bold hover:underline" href="tel:080087267486">0800-TRANSITO</a>
+            </div>
+            <div class="flex items-center gap-3">
+              <span aria-hidden="true" class="material-symbols-outlined">mail</span>
+              <a class="font-label-bold text-label-bold hover:underline"
+                href="mailto:ayuda@trasbordo.gob.ar">ayuda@trasbordo.gob.ar</a>
+            </div>
+          </div>
+          <button
+            class="w-full bg-white text-primary py-3 rounded font-label-bold text-label-bold hover:bg-surface-container-high transition-colors min-h-[48px]">
+            Iniciar Chat en Vivo
+          </button>
+        </section>
+        <!-- Wayfinding Chips / Quick Links -->
+        <section aria-labelledby="quick-links-title"
+          class="bg-surface p-6 rounded shadow-sm border border-outline-variant/30">
+          <h3 class="font-label-bold text-label-bold mb-4 uppercase tracking-tighter text-outline"
+            id="quick-links-title">Accesos Rápidos</h3>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <a class="bg-on-surface text-surface px-3 py-2 text-label-sm font-label-bold flex items-center gap-2 hover:bg-on-surface-variant transition-colors min-h-[40px] rounded-sm"
+              href="colectivos.html">
+              <span aria-hidden="true" class="material-symbols-outlined text-[16px]">directions_bus</span> BUS
+            </a>
+            <a class="bg-on-surface text-surface px-3 py-2 text-label-sm font-label-bold flex items-center gap-2 hover:bg-on-surface-variant transition-colors min-h-[40px] rounded-sm"
+              href="informacion.html#train-heading">
+              <span aria-hidden="true" class="material-symbols-outlined text-[16px]">train</span> TREN
+            </a>
+            <a class="bg-on-surface text-surface px-3 py-2 text-label-sm font-label-bold flex items-center gap-2 hover:bg-on-surface-variant transition-colors min-h-[40px] rounded-sm"
+              href="informacion.html#subway-heading">
+              <span aria-hidden="true" class="material-symbols-outlined text-[16px]">subway</span> SUBTE
+            </a>
+          </div>
+          <nav aria-label="Enlaces de terminal" class="space-y-2">
+            <a class="block p-4 border border-outline-variant/30 rounded font-body-md text-body-md hover:border-primary hover:text-primary transition-all bg-white"
+              href="index.html">Ver Mapa de Terminales</a>
+            <a class="block p-4 border border-outline-variant/30 rounded font-body-md text-body-md hover:border-primary hover:text-primary transition-all bg-white"
+              href="informacion.html#services-heading">Puntos de Carga SUBE</a>
+            <a class="block p-4 border border-outline-variant/30 rounded font-body-md text-body-md hover:border-primary hover:text-primary transition-all bg-white"
+              href="informacion.html#services-heading">Servicios para Discapacidad</a>
+          </nav>
+        </section>
+      </aside>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-surface-container border-t border-outline-variant mt-auto">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <a href="index.html" class="inline-flex items-baseline gap-[7px]">
+            <b class="font-extrabold text-[18px] tracking-tight text-on-surface">SmartTransit</b>
+            <i class="not-italic font-bold text-[18px] tracking-wider text-primary">BA</i>
+          </a>
+          <div class="text-xs font-bold uppercase tracking-widest text-outline mt-1">Centro de Trasbordo · Puente
+            Saavedra</div>
+          <div class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">
+            © 2024 Terminal de Tránsito Urbano. Todos los derechos reservados.
+          </div>
+        </div>
+        <nav aria-label="Enlaces de pie de página" class="flex gap-6 flex-wrap justify-center">
+          <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-colors min-h-[44px] flex items-center"
+            href="#">Términos de Uso</a>
+          <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-colors min-h-[44px] flex items-center"
+            href="#">Privacidad</a>
+          <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-colors min-h-[44px] flex items-center"
+            href="#">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Interactive Search Form Labels Micro-interaction
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('focus', function () {
+        const label = document.querySelector(`label[for="${this.id}"]`);
+        if (label) label.classList.add('text-primary');
+      });
+      input.addEventListener('blur', function () {
+        const label = document.querySelector(`label[for="${this.id}"]`);
+        if (label) label.classList.remove('text-primary');
+      });
+    });
+
+    // Hamburger
+    var burger = document.getElementById('burger');
+    var mnav = document.getElementById('mnav');
+    burger.addEventListener('click', function () {
+      var open = mnav.classList.toggle('hidden');
+      burger.querySelector('.material-symbols-outlined').textContent = open ? 'menu' : 'close';
+    });
+  </script>
+</body>
+
+</html>
