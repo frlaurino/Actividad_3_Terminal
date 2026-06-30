@@ -167,6 +167,11 @@
 </section>
 <!-- Content Grid -->
 <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-outline font-label-sm text-label-sm mb-4 max-w-4xl mx-auto">
+<a class="hover:text-primary underline-offset-4 hover:underline" href="index.html">Inicio</a>
+<span aria-hidden="true" class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span aria-current="location" class="text-primary font-bold">Información</span>
+</nav>
 <div class="max-w-4xl mx-auto space-y-8">
 <!-- Historia y Misión Card -->
 <article class="bg-surface-container-lowest p-6 md:p-8 border border-outline-variant relative">
@@ -339,24 +344,15 @@
 </main>
 <!-- Footer -->
 <footer class="bg-surface-container border-t border-outline-variant mt-auto">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex flex-col items-center md:items-start gap-2">
-        <a href="index.html" class="inline-flex items-baseline gap-[7px]">
-          <b class="font-extrabold text-[18px] tracking-tight text-on-surface">SmartTransit</b>
-          <i class="not-italic font-bold text-[18px] tracking-wider text-primary">BA</i>
-        </a>
-        <div class="text-xs font-bold uppercase tracking-widest text-outline mt-1">Centro de Trasbordo · Puente Saavedra</div>
-        <div class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">
-          © 2024 Terminal de Tránsito Urbano. Todos los derechos reservados.
-        </div>
-      </div>
-      <nav aria-label="Enlaces de pie de página" class="flex gap-6 flex-wrap justify-center">
-        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-colors min-h-[44px] flex items-center" href="#">Términos de Uso</a>
-        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-colors min-h-[44px] flex items-center" href="#">Privacidad</a>
-        <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary hover:underline transition-colors min-h-[44px] flex items-center" href="#">Contacto</a>
-      </nav>
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 flex flex-col items-center gap-3">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary text-[20px]">departure_board</span>
+      <span class="h-4 w-[1px] bg-outline-variant"></span>
+      <span class="font-bold tracking-widest text-on-surface text-sm uppercase">TP Terminal</span>
     </div>
+    <p class="text-xs font-bold tracking-widest text-outline uppercase text-center">
+      Diseño y Desarrollo Web &bull; UADE 2026
+    </p>
   </div>
 </footer>
 
